@@ -16,6 +16,7 @@ SOURCES += \
     StoreManager/StoreManager/store.cpp \
     addemployeeview.cpp \
     addproductview.cpp \
+    createdatabaseconnection.cpp \
     firstwindow.cpp \
     homepageview.cpp \
     inventoryview.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     StoreManager/StoreManager/store.h \
     addemployeeview.h \
     addproductview.h \
+    createdatabaseconnection.h \
     firstwindow.h \
     homepageview.h \
     inventoryview.h \
@@ -42,6 +44,7 @@ HEADERS += \
 FORMS += \
     addemployeeview.ui \
     addproductview.ui \
+    createdatabaseconnection.ui \
     firstwindow.ui \
     homepageview.ui \
     inventoryview.ui \

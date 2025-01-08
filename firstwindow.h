@@ -17,6 +17,9 @@ public:
 private:
     Ui::FirstWindow *ui;
 
+    void openDatabaseWizard();
+
+
 };
 
 #endif // FIRSTWINDOW_H

@@ -37,7 +37,6 @@ InventoryView::~InventoryView()
     delete ui;
 }
 
-/*
 void InventoryView::PopulateInventoryViewFromFile() {
     string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/LumberCo/inventory/inventory.txt";
 
@@ -104,4 +103,4 @@ void InventoryView::PopulateInventoryViewFromFile() {
 
     companyInventoryFile.close();
 }
-*/
+
