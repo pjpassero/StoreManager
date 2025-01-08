@@ -19,6 +19,9 @@ private:
     Ui::CreateDatabaseConnection *ui;
 
     void CreateConn();
+    void CreateStoreDatabaseCredentialFile(const std::string& db, const std::string& uname, const std::string& password, const std::string& host, const std::string& port);
+
+
 
 };
 
