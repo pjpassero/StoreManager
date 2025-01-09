@@ -2,6 +2,7 @@
 #define LOGINWINDOW_H
 
 #include <QMainWindow>
+#include <homepageview.h>
 
 namespace Ui {
 class LoginWindow;
@@ -17,10 +18,11 @@ public:
 
 private:
     Ui::LoginWindow *ui;
-
+    HomePageView *home;
     void LoginToProgram();
-
+    bool FindUserInDatabase(std::string &eUsername, std::string &ePassword);
     bool FindUserInDatastore();
+    void LaunchHomeView();
 
 };
 

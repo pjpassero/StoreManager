@@ -13,18 +13,9 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-    /*
-    //LoginWindow loginWin;
-    AddEmployeeView newEmployee;
-    //loginWin.show();
+    LoginWindow login;
 
-    newEmployee.show();
-
-*/
-    //Hello World!
-    FirstWindow startUpWindow;
-
-    startUpWindow.show();
+    login.show();
 
     return a.exec();
 }

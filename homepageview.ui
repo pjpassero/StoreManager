@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="inventory">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -27,7 +27,7 @@
      <string>Inventory</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="storeData">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -40,7 +40,7 @@
      <string>Store Data</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="employees">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -53,7 +53,7 @@
      <string>Employees</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="customers">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -66,7 +66,7 @@
      <string>Customers</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="sales">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -79,7 +79,7 @@
      <string>Sales</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="balancesheet">
     <property name="geometry">
      <rect>
       <x>640</x>

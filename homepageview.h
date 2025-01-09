@@ -1,6 +1,6 @@
 #ifndef HOMEPAGEVIEW_H
 #define HOMEPAGEVIEW_H
-
+#include <inventoryview.h>
 #include <QMainWindow>
 
 namespace Ui {
@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::HomePageView *ui;
+    InventoryView *inventory;
+    void LoadInventoryView();
+
 };
 
 #endif // HOMEPAGEVIEW_H

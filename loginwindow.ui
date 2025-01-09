@@ -53,17 +53,17 @@
      <string>Login</string>
     </property>
    </widget>
-   <widget class="QLabel" name="datLine">
+   <widget class="QLabel" name="status">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>280</y>
-      <width>321</width>
+      <x>220</x>
+      <y>250</y>
+      <width>371</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Data Line: </string>
+     <string>No Credentials Entered!</string>
     </property>
    </widget>
   </widget>

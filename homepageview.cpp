@@ -6,9 +6,28 @@ HomePageView::HomePageView(QWidget *parent)
     , ui(new Ui::HomePageView)
 {
     ui->setupUi(this);
+
+
+    connect(ui->inventory, &QPushButton::clicked, this, &HomePageView::LoadInventoryView);
+
+
 }
 
 HomePageView::~HomePageView()
 {
     delete ui;
 }
+
+
+
+void HomePageView::LoadInventoryView() {
+
+    inventory = new InventoryView();
+
+    inventory->activateWindow();
+    inventory->raise();
+    inventory->show();
+
+
+
+};

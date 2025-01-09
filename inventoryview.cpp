@@ -5,6 +5,7 @@
 #include "StoreManager/StoreManager/Product.h"
 #include "StoreManager/StoreManager/store.h"
 #include <fstream>
+#include <pqxx/pqxx>
 #include <string>
 
 
@@ -37,6 +38,14 @@ InventoryView::~InventoryView()
     delete ui;
 }
 
+void InventoryView::PopulateInventoryViewFromFile() {
+
+    pqxx::connection C;
+
+
+}
+
+/*
 void InventoryView::PopulateInventoryViewFromFile() {
     string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/LumberCo/inventory/inventory.txt";
 
@@ -103,4 +112,4 @@ void InventoryView::PopulateInventoryViewFromFile() {
 
     companyInventoryFile.close();
 }
-
+*/

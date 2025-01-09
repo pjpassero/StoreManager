@@ -14,32 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="creteCompany">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>50</y>
-      <width>171</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Create Company</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="openFromFile">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>50</y>
-      <width>171</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open From Company File</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="login">
     <property name="geometry">
      <rect>
@@ -56,8 +30,8 @@
    <widget class="QPushButton" name="databaseWizard">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>170</y>
+      <x>300</x>
+      <y>50</y>
       <width>171</width>
       <height>81</height>
      </rect>

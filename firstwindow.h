@@ -1,6 +1,6 @@
 #ifndef FIRSTWINDOW_H
 #define FIRSTWINDOW_H
-
+#include <loginwindow.h>
 #include <QMainWindow>
 namespace Ui {
 class FirstWindow;
@@ -16,6 +16,8 @@ public:
 
 private:
     Ui::FirstWindow *ui;
+    LoginWindow login;
+
 
     void openDatabaseWizard();
 
