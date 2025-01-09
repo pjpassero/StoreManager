@@ -5,9 +5,8 @@
 #include <fstream>
 #include <unistd.h>
 #include <QTimer>
-LoginWindow::LoginWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::LoginWindow)
+LoginWindow::LoginWindow(QWidget *parent, pqxx::connection& conn)
+    : QMainWindow(parent), C(conn), ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
 
@@ -28,70 +27,26 @@ LoginWindow::~LoginWindow()
 }
 
 bool LoginWindow::FindUserInDatabase(std::string &eUsername, std::string &ePassword) {
+    try {
+        pqxx::work txn(C);
+        std::string query = "SELECT * FROM employee WHERE username = $1 AND password = $2";
+        pqxx::result result = txn.exec_params(query, eUsername, ePassword);
 
-    std::ifstream myFile;
-
-    std::string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/database.txt";
-
-    myFile.open(filePath);
-
-    if(myFile.is_open()) {
-        std::string line;
-        std::string db, uname, password, host, port;
-        std::cout << "File Found!" << std::endl;
-        while (std::getline(myFile, line)) {
-            std::istringstream ss(line);
-
-            // Parse the line
-            if (std::getline(ss, db, ',') &&
-                std::getline(ss, uname, ',') &&
-                std::getline(ss, password, ',') &&
-                std::getline(ss, host, ',') &&
-                std::getline(ss, port, ',')) {
-
-                // Print parsed data
-                std::cout << "Database: " << db << std::endl;
-                std::cout << "Username: " << uname << std::endl;
-                std::cout << "Password: " << password << std::endl;
-                std::cout << "Host: " << host << std::endl;
-                std::cout << "Port: " << port << std::endl;
-            } else {
-                std::cerr << "Error parsing the line: " << line << std::endl;
-            }
-
-
-            std::string connectiontString = "dbname=" + db + " user=" + uname + " password=" + password + " host=" + host + " port=" + port;
-
-            pqxx::connection C(connectiontString);
-
-            if(C.is_open()) {
-                pqxx::work txn(C);
-                std::string query = "SELECT * FROM employee WHERE username = $1 AND password = $2";
-                pqxx::result result = txn.exec_params(query, eUsername, ePassword);
-                if (!result.empty()) {
-                    std::cout << "Credentials are valid!" << std::endl;
-                    ui->status->setText("Proper Credentials Entered! Logging in...");
-                    ui->status->setStyleSheet("color:green;");
-                    return true;
-                } else {
-                    std::cout << "Invalid credentials!" << std::endl;
-                    ui->status->setText("Please check Credentials; Username or Password is incorrect!");
-                    ui->status->setStyleSheet("color:red");
-
-                    return false;
-                }
-            } else {
-                std::cout << "Error connecting to the database" << std::endl;
-                return false;
-            }
-
-    }
-
-    } else {
+        if (!result.empty()) {
+            ui->status->setText("Proper Credentials Entered! Logging in...");
+            ui->status->setStyleSheet("color:green;");
+            return true;
+        } else {
+            ui->status->setText("Please check Credentials; Username or Password is incorrect!");
+            ui->status->setStyleSheet("color:red");
+            return false;
+        }
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
         return false;
     }
-    return false;
 }
+
 
 void LoginWindow::LoginToProgram() {
     std::string username = ui->user->toPlainText().toStdString();
@@ -113,7 +68,7 @@ void LoginWindow::LoginToProgram() {
 
 void LoginWindow::LaunchHomeView() {
 
-    home = new HomePageView();
+    home = new HomePageView(nullptr, C);
     home->activateWindow();
     home->raise();
     home->show();

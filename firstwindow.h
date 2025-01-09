@@ -16,7 +16,7 @@ public:
 
 private:
     Ui::FirstWindow *ui;
-    LoginWindow login;
+    //LoginWindow login;
 
 
     void openDatabaseWizard();

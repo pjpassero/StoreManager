@@ -1,9 +1,9 @@
 #include "homepageview.h"
 #include "ui_homepageview.h"
 
-HomePageView::HomePageView(QWidget *parent)
+HomePageView::HomePageView(QWidget *parent, pqxx::connection &conn)
     : QMainWindow(parent)
-    , ui(new Ui::HomePageView)
+    , ui(new Ui::HomePageView), C(conn)
 {
     ui->setupUi(this);
 
@@ -22,7 +22,7 @@ HomePageView::~HomePageView()
 
 void HomePageView::LoadInventoryView() {
 
-    inventory = new InventoryView();
+    inventory = new InventoryView(nullptr, C);
 
     inventory->activateWindow();
     inventory->raise();

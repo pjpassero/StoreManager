@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     StoreManager/StoreManager/BalanceSheet.cpp \
+    StoreManager/StoreManager/DataBaseManager.cpp \
     StoreManager/StoreManager/Employee.cpp \
     StoreManager/StoreManager/Product.cpp \
     StoreManager/StoreManager/mainStoreManager.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     StoreManager/StoreManager/BalanceSheet.h \
+    StoreManager/StoreManager/DataBaseManager.h \
     StoreManager/StoreManager/Employee.h \
     StoreManager/StoreManager/Product.h \
     StoreManager/StoreManager/UID.h \

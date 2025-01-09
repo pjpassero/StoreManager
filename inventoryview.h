@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "addproductview.h"
+#include <pqxx/pqxx>
 
 namespace Ui {
 class InventoryView;
@@ -13,12 +14,15 @@ class InventoryView : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit InventoryView(QWidget *parent = nullptr);
+    explicit InventoryView(QWidget *parent, pqxx::connection &conn);
     ~InventoryView();
 
 private:
     Ui::InventoryView *ui;
     AddProductView *newProduct;
+    pqxx::connection &C;
+
+
 
     void PopulateInventoryViewFromFile();
 

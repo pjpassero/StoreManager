@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <homepageview.h>
-
+#include <pqxx/pqxx>
 namespace Ui {
 class LoginWindow;
 }
@@ -13,10 +13,11 @@ class LoginWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit LoginWindow(QWidget *parent = nullptr);
+    explicit LoginWindow(QWidget *parent, pqxx::connection& conn);
     ~LoginWindow();
 
 private:
+    pqxx::connection &C;
     Ui::LoginWindow *ui;
     HomePageView *home;
     void LoginToProgram();

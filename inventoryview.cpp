@@ -9,13 +9,13 @@
 #include <string>
 
 
-InventoryView::InventoryView(QWidget *parent)
+InventoryView::InventoryView(QWidget *parent, pqxx::connection &conn)
     : QMainWindow(parent)
-    , ui(new Ui::InventoryView), newProduct(nullptr)
+    , ui(new Ui::InventoryView), newProduct(nullptr), C(conn)
 {
     ui->setupUi(this);
 
-    Store myStore("LumberCo");
+    //Store myStore("LumberCo");
 
     this->setWindowTitle("Inventory View");
     this->PopulateInventoryViewFromFile();
@@ -39,11 +39,40 @@ InventoryView::~InventoryView()
 }
 
 void InventoryView::PopulateInventoryViewFromFile() {
+    try {
+        pqxx::work txn(C);
+        std::string query = "SELECT sku, productName, productCost, productPrice, productInventory, supplierId, UPC FROM product";
+        pqxx::result result = txn.exec(query);
 
-    pqxx::connection C;
+        ui->tableWidget->setRowCount(result.size());  // Set the number of rows in the table widget
 
+        int row = 0;
+        for (auto r : result) {
+            QString qSKU = QString::fromStdString(r["sku"].c_str());
+            QString qName = QString::fromStdString(r["productName"].c_str());
+            QString qCost = QString::fromStdString(r["productCost"].c_str());
+            QString qPrice = QString::fromStdString(r["productPrice"].c_str());
+            QString qInventory = QString::fromStdString(r["productInventory"].c_str());
+            QString qSupplierId = QString::fromStdString(r["supplierId"].c_str());
+            QString qUPC = QString::fromStdString(r["UPC"].c_str());
 
+            ui->tableWidget->setItem(row, 0, new QTableWidgetItem(qSKU));            // SKU
+            ui->tableWidget->setItem(row, 1, new QTableWidgetItem(qName));           // Name
+            ui->tableWidget->setItem(row, 2, new QTableWidgetItem(qCost));           // Cost
+            ui->tableWidget->setItem(row, 3, new QTableWidgetItem(qPrice));          // Price
+            ui->tableWidget->setItem(row, 4, new QTableWidgetItem(qInventory));      // Inventory
+            ui->tableWidget->setItem(row, 5, new QTableWidgetItem(qSupplierId));     // Supplier ID
+            ui->tableWidget->setItem(row, 6, new QTableWidgetItem(qUPC));            // UPC
+
+            row++;
+        }
+
+    } catch (const std::exception& e) {
+        std::cerr << "Error fetching data: " << e.what() << std::endl;
+    }
 }
+
+
 
 /*
 void InventoryView::PopulateInventoryViewFromFile() {

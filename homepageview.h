@@ -12,13 +12,15 @@ class HomePageView : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit HomePageView(QWidget *parent = nullptr);
+    explicit HomePageView(QWidget *parent, pqxx::connection &conn);
     ~HomePageView();
 
 private:
     Ui::HomePageView *ui;
     InventoryView *inventory;
+    pqxx::connection &C;
     void LoadInventoryView();
+
 
 };
 
