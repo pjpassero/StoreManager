@@ -37,7 +37,7 @@ bool LoginWindow::FindUserInDatabase(std::string &eUsername, std::string &ePassw
             ui->status->setStyleSheet("color:green;");
             return true;
         } else {
-            ui->status->setText("Please check Credentials; Username or Password is incorrect!");
+            ui->status->setText("Please check Credentials!");
             ui->status->setStyleSheet("color:red");
             return false;
         }

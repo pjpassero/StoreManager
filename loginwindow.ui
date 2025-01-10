@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>440</width>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,15 @@
    <widget class="QTextEdit" name="user">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>60</x>
       <y>70</y>
       <width>331</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">    border-radius: 5%; 
+</string>
     </property>
     <property name="placeholderText">
      <string>Username</string>
@@ -30,11 +34,15 @@
    <widget class="QTextEdit" name="password">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>130</y>
+      <x>60</x>
+      <y>150</y>
       <width>331</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">    border-radius: 5%; /* Round corners */
+</string>
     </property>
     <property name="placeholderText">
      <string>Password</string>
@@ -43,11 +51,16 @@
    <widget class="QPushButton" name="loginBtn">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>200</y>
+      <x>160</x>
+      <y>230</y>
       <width>100</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:lightblue;
+color:black;
+padding:5%;</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -56,14 +69,14 @@
    <widget class="QLabel" name="status">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>250</y>
-      <width>371</width>
+      <x>70</x>
+      <y>280</y>
+      <width>331</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>No Credentials Entered!</string>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -72,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>440</width>
      <height>37</height>
     </rect>
    </property>

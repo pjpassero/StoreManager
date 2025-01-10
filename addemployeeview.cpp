@@ -4,7 +4,6 @@
 
 //#include <string>
 
-std::string storePath = "LumberCo";
 
 AddEmployeeView::AddEmployeeView(QWidget *parent)
     : QMainWindow(parent)
@@ -16,7 +15,7 @@ AddEmployeeView::AddEmployeeView(QWidget *parent)
     this->setWindowTitle("Add Employee");
 
     connect(ui->addEmployee, &QPushButton::clicked, this, [this]() {
-
+    /*
         QString employeeName = ui->firstname->toPlainText() + " " + ui->lastname->toPlainText();
         QString employeeUserName = ui->username->toPlainText();
         QString employeePassword = ui->password->toPlainText();
@@ -35,7 +34,7 @@ AddEmployeeView::AddEmployeeView(QWidget *parent)
 
         newEmployee.AddNewEmployeeDriver(newEmployee, storePath);
 
-
+*/
     });
 
 }

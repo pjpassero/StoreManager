@@ -1,6 +1,7 @@
 #ifndef EMPLOYEELISTVIEW_H
 #define EMPLOYEELISTVIEW_H
-
+#include <pqxx/pqxx>
+#include <addemployeeview.h>
 #include <QMainWindow>
 
 namespace Ui {
@@ -12,11 +13,17 @@ class EmployeeListView : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit EmployeeListView(QWidget *parent = nullptr);
+    explicit EmployeeListView(QWidget *parent, pqxx::connection &conn);
     ~EmployeeListView();
 
 private:
     Ui::EmployeeListView *ui;
+    pqxx::connection &C;
+    AddEmployeeView *newEmployee;
+
+    void populateEmployeeTable();
+    void AddEmployee();
+
 };
 
 #endif // EMPLOYEELISTVIEW_H

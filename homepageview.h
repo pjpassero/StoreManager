@@ -1,6 +1,7 @@
 #ifndef HOMEPAGEVIEW_H
 #define HOMEPAGEVIEW_H
 #include <inventoryview.h>
+#include <employeelistview.h>
 #include <QMainWindow>
 
 namespace Ui {
@@ -18,8 +19,10 @@ public:
 private:
     Ui::HomePageView *ui;
     InventoryView *inventory;
+    EmployeeListView *employees;
     pqxx::connection &C;
     void LoadInventoryView();
+    void LoadEmployeeView();
 
 
 };

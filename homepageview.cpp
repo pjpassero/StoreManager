@@ -7,9 +7,10 @@ HomePageView::HomePageView(QWidget *parent, pqxx::connection &conn)
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("Store Manager Pro: V1.0");
 
     connect(ui->inventory, &QPushButton::clicked, this, &HomePageView::LoadInventoryView);
-
+    connect(ui->employees, &QPushButton::clicked,this, &HomePageView::LoadEmployeeView);
 
 }
 
@@ -31,3 +32,14 @@ void HomePageView::LoadInventoryView() {
 
 
 };
+
+
+void HomePageView::LoadEmployeeView() {
+
+    employees = new EmployeeListView(nullptr, C);
+
+    employees->activateWindow();
+    employees->raise();
+    employees->show();
+
+}
