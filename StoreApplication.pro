@@ -13,6 +13,7 @@ SOURCES += \
     StoreManager/StoreManager/DataBaseManager.cpp \
     StoreManager/StoreManager/Employee.cpp \
     StoreManager/StoreManager/Product.cpp \
+    StoreManager/StoreManager/UserSession.cpp \
     StoreManager/StoreManager/mainStoreManager.cpp \
     StoreManager/StoreManager/store.cpp \
     addemployeeview.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     StoreManager/StoreManager/Employee.h \
     StoreManager/StoreManager/Product.h \
     StoreManager/StoreManager/UID.h \
+    StoreManager/StoreManager/UserSession.h \
     StoreManager/StoreManager/store.h \
     addemployeeview.h \
     addproductview.h \
