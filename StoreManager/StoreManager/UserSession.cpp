@@ -18,6 +18,6 @@ void UserSession::logSessionEvent() {
 
     pqxx::work txn(C);
     std::string logEventInsert = "INSERT INTO accessLog (userId, timeAccessed, eventType) " "VALUES (1, '12:30:00', 'Login')";
-
+    //Comment
 
 }
