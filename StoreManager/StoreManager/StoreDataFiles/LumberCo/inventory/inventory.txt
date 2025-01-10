@@ -1,0 +1,30 @@
+79380,Hydroflask,9.93,25.99,34,Hydro America,839204839
+24839,Tea Kettle,8.93,29.99,12,Tea Mania,839278839
+05227,North Face Backpack,12.5,89.99,100,North Face,839204840
+37902,Ninja Blender,10.75,119.99,45,Ninja,839204841
+39970,OtterBox Phone Case,0.45,39.99,200,OtterBox,839204842
+39865,Samsung Microwave,23,149.99,30,Samsung,839204843
+76270,Sony Headphones,0.75,199.99,60,Sony,839204844
+39991,Ikea Desk Lamp,5,29.99,120,Ikea,839204845
+72365,NordicTrack Treadmill,60,799.99,15,NordicTrack,839204846
+58147,Cuisinart Toaster,4.5,49.99,85,Cuisinart,839204847
+13848,Honeywell Air Purifier,15,199.99,22,Honeywell,839204848
+04603,Keurig Coffee Maker,7.5,99.99,40,Keurig,839204849
+79380,Hydroflask,9.93,25.99,34,Hydro America,839204839
+24839,Tea Kettle,8.93,29.99,12,Tea Mania,839278839
+79380,Hydroflask,9.93,25.99,34,Hydro America,839204839
+24839,Tea Kettle,8.93,29.99,12,Tea Mania,839278839
+05227,North Face Backpack,12.5,89.99,100,North Face,839204840
+37902,Ninja Blender,10.75,119.99,45,Ninja,839204841
+39970,OtterBox Phone Case,0.45,39.99,200,OtterBox,839204842
+39865,Samsung Microwave,23,149.99,30,Samsung,839204843
+76270,Sony Headphones,0.75,199.99,60,Sony,839204844
+39991,Ikea Desk Lamp,5,29.99,120,Ikea,839204845
+72365,NordicTrack Treadmill,60,799.99,15,NordicTrack,839204846
+58147,Cuisinart Toaster,4.5,49.99,85,Cuisinart,839204847
+13848,Honeywell Air Purifier,15,199.99,22,Honeywell,839204848
+04603,Keurig Coffee Maker,7.5,99.99,40,Keurig,839204849
+79380,Hydroflask,9.93,25.99,34,Hydro America,839204839
+24839,Tea Kettle,8.93,29.99,12,Tea Mania,839278839
+55418,Macbook Pro 15",2099.99,1200.98,0,,948204825
+54917,Ipad Pro 13 Inch,999.99,399.98,0,,0
