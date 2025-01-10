@@ -1,10 +1,11 @@
 #include "addproductview.h"
 #include "ui_addproductview.h"
+#include <pqxx/pqxx>
 #include "StoreManager/StoreManager/Product.h"
 
-AddProductView::AddProductView(QWidget *parent)
+AddProductView::AddProductView(QWidget *parent, pqxx::connection &conn)
     : QDialog(parent)
-    , ui(new Ui::AddProductView)
+    , ui(new Ui::AddProductView), C(conn)
 {
     ui->setupUi(this);
 
