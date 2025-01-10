@@ -20,6 +20,9 @@ private:
     Ui::AddProductView *ui;
     pqxx::connection &C;
     void CreateNewProduct();
+    void populateVendorList();
+
+
 };
 
 #endif // ADDPRODUCTVIEW_H

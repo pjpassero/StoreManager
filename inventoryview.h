@@ -15,6 +15,8 @@ class InventoryView : public QMainWindow
 
 public:
     explicit InventoryView(QWidget *parent, pqxx::connection &conn);
+    void reloadDataTable();
+    void onSelectedRow();
     ~InventoryView();
 
 private:

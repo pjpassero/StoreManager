@@ -31,12 +31,20 @@ InventoryView::InventoryView(QWidget *parent, pqxx::connection &conn)
         newProduct->activateWindow();
 
     });
+
+
+    connect(ui->tableWidget, &QTableWidget::cellClicked, this, &InventoryView::onSelectedRow);
 }
 
 InventoryView::~InventoryView()
 {
     delete ui;
 }
+
+void InventoryView::reloadDataTable() {
+    PopulateInventoryViewFromFile();
+}
+
 
 void InventoryView::PopulateInventoryViewFromFile() {
     try {
@@ -69,6 +77,20 @@ void InventoryView::PopulateInventoryViewFromFile() {
 
     } catch (const std::exception& e) {
         std::cerr << "Error fetching data: " << e.what() << std::endl;
+    }
+}
+
+void InventoryView::onSelectedRow() {
+    QList<QModelIndex> selectedIndexes = ui->tableWidget->selectionModel()->selectedIndexes();
+
+    if (!selectedIndexes.isEmpty()) {
+        QModelIndex selectedIndex = selectedIndexes.first();
+
+        int selectedRow = selectedIndex.row();
+
+        qDebug() << "Selected row:" << selectedRow;
+    } else {
+        qDebug() << "No row selected!";
     }
 }
 

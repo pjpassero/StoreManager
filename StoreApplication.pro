@@ -18,6 +18,7 @@ SOURCES += \
     addemployeeview.cpp \
     addproductview.cpp \
     createdatabaseconnection.cpp \
+    employeelistview.cpp \
     firstwindow.cpp \
     homepageview.cpp \
     inventoryview.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     addemployeeview.h \
     addproductview.h \
     createdatabaseconnection.h \
+    employeelistview.h \
     firstwindow.h \
     homepageview.h \
     inventoryview.h \
@@ -47,6 +49,7 @@ FORMS += \
     addemployeeview.ui \
     addproductview.ui \
     createdatabaseconnection.ui \
+    employeelistview.ui \
     firstwindow.ui \
     homepageview.ui \
     inventoryview.ui \
