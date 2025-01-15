@@ -14,14 +14,17 @@ Employee::Employee( pqxx::connection &conn):C(conn) {
 }
 
 
-Employee::Employee(string nName, double nSalary, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn):C(conn) {
+Employee::Employee(string nName, double nSalary, string pEmail, string pN, string aL, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn):C(conn) {
     salary = nSalary;
     name = nName;
     accessLevel = pLevel;
+    isActive = aL;
     employeeUID = createNewID(6, name, false);
     username = uName;
     password = pWord;
     address = nAddress;
+    email = pEmail;
+    phonenumber = pN;
 }
 
 
@@ -141,6 +144,28 @@ bool Employee::SearchEmployeeFileByUID(string searchUID) {
     employeeFile.close();
     return found;
 }
+void Employee::AddNewEmployeeDriver(Employee &employee) {
+
+    try {
+        pqxx::work txn(C);
+        std::string query = "INSERT INTO employee (employeeid, fullname, personalemail,phonenumber,permissionlevel,address,isactive,username, password, salary) "
+                            "VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10)";
+        pqxx::result result = txn.exec_params(query, employeeUID, name, email, phonenumber, accessLevel, address, isActive, username, password,salary);
+
+        txn.commit();
+
+        std::cout << "Employee Added!" << std::endl;
+
+    } catch (const std::exception &e) {
+
+    std::cerr << "Error saving product to inventory: " << e.what() << std::endl;
+}
+
+
+
+
+
+};
 
 
 /*
@@ -195,33 +220,6 @@ void Employee::SaveEmployeeData(Employee &employee) {
 }
 
 
-void Employee::AddNewEmployeeDriver(Employee &employee, string &storePath) {
-    
-    employee.isActive = 1;
-    
-    ofstream employeeFile;
-    string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/" + storePath + "/employee/employee.txt";
-    
-    try  {
-        employeeFile.open(filePath, ios_base::app);
-        if (!employeeFile.is_open()) {
-            throw runtime_error("Error: Unable to open file " + filePath);
-        }
-        
-        if(SearchEmployeeFileByUID(employee.employeeUID)) {
-            cout << "Employee Already in the data store!" << endl;
-        } else {
-            employeeFile << employee.isActive << "," << employee.employeeUID<<","<< employee.name << "," << employee.salary << ","<< employee.accessLevel << "," <<employee.username <<","<< employee.password<< ","<<employee.address<<endl;
-            cout << "New employee added successfully!" << endl;
-
-        }
-        
-    } catch (exception &e) {
-        cerr << "Error " << e.what() << endl;
-    }
-    
-    
-};
 
 */
 

@@ -9,6 +9,8 @@ class UserSession {
 public:
     UserSession(Employee &userLoggedIn, pqxx::connection &conn);
     void logSessionEvent(std::string type);
+    Employee& getCurentEmployee();
+
 private:
     Employee& activeUser;
     pqxx::connection &C;

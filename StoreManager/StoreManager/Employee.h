@@ -8,14 +8,14 @@ class Employee {
 
 public:
     Employee(pqxx::connection &conn);
-    Employee(string nName, double nSalary, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn);
+    Employee(string nName, double nSalary, string pEmail, string pN, string aL, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn);
     Employee(string userName, string password, pqxx::connection &conn);
     string getUID();
     string getName();
     double getSalary();
     
     void deactivateEmployee(string UID);
-    void AddNewEmployeeDriver(Employee &employeel, string &storePath);
+    void AddNewEmployeeDriver(Employee &employeel);
     void SaveEmployeeData(Employee &employee);
     void SetEmployeeLoginCredentials(string uid, string username, string password);
     void ReadEmployeeData(string UID);
@@ -37,6 +37,7 @@ private:
     string username;
     string password;
     string email;
+    string phonenumber;
     
     
 };

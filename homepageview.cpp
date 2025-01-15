@@ -9,10 +9,20 @@ HomePageView::HomePageView(QWidget *parent, pqxx::connection &con, UserSession &
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("Store Manager Pro: V1.0");
+    QString titleString = "Store Manager Pro: V1.0, User: " + QString::fromStdString(session.getCurentEmployee().getName());
+
+    this->setWindowTitle(titleString);
 
     connect(ui->inventory, &QPushButton::clicked, this, &HomePageView::LoadInventoryView);
     connect(ui->employees, &QPushButton::clicked,this, &HomePageView::LoadEmployeeView);
+
+    if(session.getCurentEmployee().getPermissionLevel() != "Owner") {
+        ui->employees->setEnabled(false);
+        ui->balancesheet->setEnabled(false);
+        ui->storeData->setEnabled(false);
+    }
+
+
 
 
 }

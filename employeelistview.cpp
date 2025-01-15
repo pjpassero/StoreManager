@@ -8,6 +8,9 @@ EmployeeListView::EmployeeListView(QWidget *parent,pqxx::connection &conn)
     , ui(new Ui::EmployeeListView), C(conn)
 {
     ui->setupUi(this);
+
+    this->setWindowTitle("Owener Employee View");
+
     populateEmployeeTable();
 
 
@@ -59,7 +62,7 @@ void EmployeeListView::populateEmployeeTable() {
 
 void EmployeeListView::AddEmployee() {
 
-    newEmployee = new AddEmployeeView();
+    newEmployee = new AddEmployeeView(this, C);
     newEmployee->show();
     newEmployee->raise();
     newEmployee->activateWindow();

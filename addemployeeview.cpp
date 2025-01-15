@@ -1,40 +1,48 @@
 #include "addemployeeview.h"
+#include "employeelistview.h"
 #include "ui_addemployeeview.h"
 #include "StoreManager/StoreManager/Employee.h"
+#include <pqxx/pqxx>
 
-//#include <string>
 
-
-AddEmployeeView::AddEmployeeView(QWidget *parent)
+AddEmployeeView::AddEmployeeView(QWidget *parent, pqxx::connection &conn)
     : QMainWindow(parent)
-    , ui(new Ui::AddEmployeeView)
+    , ui(new Ui::AddEmployeeView), C(conn)
 {
     ui->setupUi(this);
 
 
-    this->setWindowTitle("Add Employee");
+    this->setWindowTitle("Add New Employee");
+
+
+
 
     connect(ui->addEmployee, &QPushButton::clicked, this, [this]() {
-    /*
         QString employeeName = ui->firstname->toPlainText() + " " + ui->lastname->toPlainText();
         QString employeeUserName = ui->username->toPlainText();
+        QString email = ui->email->toPlainText();
         QString employeePassword = ui->password->toPlainText();
         QString employeePayRate = ui->payRate->toPlainText();
         QString employeeIsActive = ui->isActive->currentText();
         QString employeePrivledgeLevel = ui->privledgeLevel->currentText();
         QString employeeAddress = ui->address->toPlainText();
+        QString phoneNum = ui->phoneNumber->toPlainText();
 
-        QString finalString = employeeName + "," + employeeUserName + "," + employeePassword + "," + employeePayRate + "," +
-            employeeIsActive + "," + employeePrivledgeLevel;
+        string activeL = "N";
 
-        ui->label->setText(finalString);
+        if(employeeIsActive == "Active") {
+            activeL = "Y";
+        }
+
         double employeePay = employeePayRate.toDouble();
 
-        Employee newEmployee(employeeName.toStdString(),employeePay, employeePrivledgeLevel.toStdString(), employeeUserName.toStdString(), employeePassword.toStdString(), employeeAddress.toStdString());
+        Employee newEmployee(employeeName.toStdString(),employeePay, email.toStdString(), phoneNum.toStdString(), activeL, employeePrivledgeLevel.toStdString(), employeeUserName.toStdString(), employeePassword.toStdString(), employeeAddress.toStdString(), C);
 
-        newEmployee.AddNewEmployeeDriver(newEmployee, storePath);
+        newEmployee.AddNewEmployeeDriver(newEmployee);
 
-*/
+        this->close();
+
+
     });
 
 }

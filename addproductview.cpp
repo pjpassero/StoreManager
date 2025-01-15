@@ -8,6 +8,7 @@ AddProductView::AddProductView(QWidget *parent, pqxx::connection &conn)
     , ui(new Ui::AddProductView), C(conn)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Add a New Product");
     populateVendorList();
 
     connect(ui->addProduct, &QPushButton::clicked, this, &AddProductView::CreateNewProduct);
@@ -20,13 +21,30 @@ AddProductView::~AddProductView()
     delete ui;
 }
 
+int determineLevel(const std::string& level) {
+    if (level == "Active") {
+        return 0;
+    } else if (level == "Inactive") {
+        return 1;
+    } else if (level == "Discontinued") {
+        return 2;
+    } else if (level == "Out of Stock") {
+        return 3;
+    } else {
+        throw std::invalid_argument("Invalid level");
+    }
+}
+
 void AddProductView::CreateNewProduct() {
 
     QString pName  = ui->productName->text();
     QString lSupplier = ui->preferredVendor->currentText();
     QString cost = ui->productLastCost->text();
     QString price = ui->productPrice->text();
+    QString activeLevel = ui->activeLevel->currentText();
     QString upc = ui->productUPC->text();
+
+    int getActiveLevel = determineLevel(activeLevel.toStdString());
 
     pqxx::work txn(C);
     std::string getSupplierId = "SELECT supplierid FROM supplier WHERE suppliername=$1";
@@ -37,7 +55,7 @@ void AddProductView::CreateNewProduct() {
 
     txn.commit();
 
-    Product newProduct(pName.toStdString(), cost.toDouble(),price.toDouble(),0,supplierId.toInt(),upc.toInt(), C);
+    Product newProduct(pName.toStdString(), cost.toDouble(),price.toDouble(),0,supplierId.toInt(),upc.toULongLong(), getActiveLevel, C);
 
     newProduct.SaveToInventoryFile(newProduct);
 

@@ -8,7 +8,7 @@ Product::Product(pqxx::connection &conn):C(conn) {
 
 
 
-Product::Product(string n, double fCost, double pPrice, int qQuantity, int sSupplier, int uUPC, pqxx::connection &conn) : C(conn) {
+Product::Product(string n, double fCost, double pPrice, int qQuantity, int sSupplier,long long int uUPC, int activeLevel, pqxx::connection &conn) : C(conn) {
     name = n;
     factoryCost = fCost;
     price = pPrice;
@@ -16,15 +16,15 @@ Product::Product(string n, double fCost, double pPrice, int qQuantity, int sSupp
     lastSupplier = sSupplier;
     UPC = uUPC;
     storeSKU = createUID(5, name, true);
-    activationLevel = 0;
+    activationLevel = activeLevel;
 }
 
 void Product::SaveToInventoryFile(Product &product) {
     try {
         pqxx::work txn(C);
-        std::string query = "INSERT INTO product (sku, productname, productcost, productprice, productinventory, supplierid, upc) "
-                            "VALUES ($1, $2, $3, $4, $5, $6, $7)";
-        txn.exec_params(query, product.storeSKU, product.name, product.factoryCost, product.price, product.quantity, product.lastSupplier, product.UPC);
+        std::string query = "INSERT INTO product (sku, productname, productcost, productprice, productinventory, supplierid, activelevel, upc) "
+                            "VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+        txn.exec_params(query, product.storeSKU, product.name, product.factoryCost, product.price, product.quantity, product.lastSupplier, activationLevel, product.UPC);
         txn.commit();
 
         std::cout << "Product added to inventory successfully!" << std::endl;

@@ -27,3 +27,8 @@ void UserSession::logSessionEvent(std::string type) {
 
     txn.commit();
 }
+
+
+Employee& UserSession::getCurentEmployee() {
+    return activeUser;
+}

@@ -17,7 +17,7 @@ private:
     double factoryCost;
     double price;
     int quantity;
-    int UPC;
+    long long int UPC;
     int generateSKU();
     int activationLevel;
 
@@ -26,7 +26,7 @@ private:
 
 public:
     Product(pqxx::connection &conn);
-    Product(string n, double fCost, double pPrice, int qQuantity, int sSupplier, int uUPC, pqxx::connection &conn);
+    Product(string n, double fCost, double pPrice, int qQuantity, int sSupplier, long long int uUPC, int activeLevel, pqxx::connection &conn);
     
     void getProductName();
     void getProductPrice();
