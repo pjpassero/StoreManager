@@ -1,14 +1,15 @@
 #pragma once
 #include <string>
 #include "UID.h"
+#include <pqxx/pqxx>
 using namespace std;
 
 class Employee {
 
 public:
-    Employee();
-    Employee(string nName, double nSalary, string pLevel, string uName, string pWord, string nAddress);
-
+    Employee(pqxx::connection &conn);
+    Employee(string nName, double nSalary, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn);
+    Employee(string userName, string password, pqxx::connection &conn);
     string getUID();
     string getName();
     double getSalary();
@@ -19,19 +20,23 @@ public:
     void SetEmployeeLoginCredentials(string uid, string username, string password);
     void ReadEmployeeData(string UID);
     bool SearchEmployeeFileByUID(string UID);
-    
+    void setEmployeeDetails();
+    string getPermissionLevel();
+
     
     friend class Store;
 private:
+    pqxx::connection &C;
     string employeeUID;
     string address;
     double salary;
     string name;
     UID createNewID;
     string accessLevel;
-    int isActive;
+    string isActive;
     string username;
     string password;
+    string email;
     
     
 };

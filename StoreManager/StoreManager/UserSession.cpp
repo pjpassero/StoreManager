@@ -6,7 +6,7 @@
 
 UserSession::UserSession(Employee &userLoggedIn, pqxx::connection &conn):activeUser(userLoggedIn), C(conn){
 
-    sessionStart = std::time(0); //start time
+    sessionStart = std::time(nullptr); //start time
 
 
 
@@ -14,10 +14,16 @@ UserSession::UserSession(Employee &userLoggedIn, pqxx::connection &conn):activeU
 }
 
 
-void UserSession::logSessionEvent() {
+void UserSession::logSessionEvent(std::string type) {
+
+    string employeeId = activeUser.getUID();
 
     pqxx::work txn(C);
-    std::string logEventInsert = "INSERT INTO accessLog (userId, timeAccessed, eventType) " "VALUES (1, '12:30:00', 'Login')";
-    //Comment
 
+
+    std::string logEventInsert = "INSERT INTO accessLog (userId, timeAccessed, eventType) " "VALUES ($1, $2, $3)";
+    pqxx::result result = txn.exec_params(logEventInsert, employeeId, sessionStart, type);
+
+
+    txn.commit();
 }

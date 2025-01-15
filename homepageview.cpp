@@ -1,9 +1,11 @@
 #include "homepageview.h"
 #include "ui_homepageview.h"
+#include "StoreManager/StoreManager/UserSession.h"
 
-HomePageView::HomePageView(QWidget *parent, pqxx::connection &conn)
+
+HomePageView::HomePageView(QWidget *parent, pqxx::connection &con, UserSession &newSession)
     : QMainWindow(parent)
-    , ui(new Ui::HomePageView), C(conn)
+    , ui(new Ui::HomePageView),session(newSession),C(con)
 {
     ui->setupUi(this);
 
@@ -11,6 +13,7 @@ HomePageView::HomePageView(QWidget *parent, pqxx::connection &conn)
 
     connect(ui->inventory, &QPushButton::clicked, this, &HomePageView::LoadInventoryView);
     connect(ui->employees, &QPushButton::clicked,this, &HomePageView::LoadEmployeeView);
+
 
 }
 

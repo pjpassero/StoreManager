@@ -33,6 +33,11 @@ public:
         return myUID;
     }
 
+
+    string genericId() {
+        return "generic id";
+    }
+
 private:
     string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 

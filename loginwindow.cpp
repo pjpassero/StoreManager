@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
+#include "StoreManager/StoreManager/UserSession.h"
 #include <QTimer>
 LoginWindow::LoginWindow(QWidget *parent, pqxx::connection& conn)
     : QMainWindow(parent), C(conn), ui(new Ui::LoginWindow)
@@ -57,7 +58,13 @@ void LoginWindow::LoginToProgram() {
     //add login validation
 
     if(FindUserInDatabase(username, password)) {
-        LaunchHomeView();
+
+        Employee currentEmployee(username, password, C);
+        currentEmployee.setEmployeeDetails();
+
+        UserSession newSession(currentEmployee, C);
+
+        LaunchHomeView(newSession);
 
     } else {
         std::cout << "Error, check username or password" << std::endl;
@@ -66,9 +73,10 @@ void LoginWindow::LoginToProgram() {
 }
 
 
-void LoginWindow::LaunchHomeView() {
+void LoginWindow::LaunchHomeView(UserSession &us) {
 
-    home = new HomePageView(nullptr, C);
+    us.logSessionEvent("login");
+    home = new HomePageView(nullptr, C, us);
     home->activateWindow();
     home->raise();
     home->show();

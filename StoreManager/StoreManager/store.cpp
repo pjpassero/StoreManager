@@ -1,3 +1,4 @@
+/*
 #include "store.h"
 #include <fstream>
 #include <map>
@@ -190,4 +191,4 @@ void Store::ReadInventoryFile() {
     companyInventoryFile.close();
 
 }
-
+*/

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <homepageview.h>
 #include <pqxx/pqxx>
+#include "StoreManager/StoreManager/UserSession.h"
 namespace Ui {
 class LoginWindow;
 }
@@ -23,7 +24,7 @@ private:
     void LoginToProgram();
     bool FindUserInDatabase(std::string &eUsername, std::string &ePassword);
     bool FindUserInDatastore();
-    void LaunchHomeView();
+    void LaunchHomeView(UserSession &us);
 
 };
 
