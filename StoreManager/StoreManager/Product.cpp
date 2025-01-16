@@ -22,7 +22,7 @@ Product::Product(string n, double fCost, double pPrice, int qQuantity, int sSupp
 void Product::SaveToInventoryFile(Product &product) {
     try {
         pqxx::work txn(C);
-        std::string query = "INSERT INTO product (sku, productname, productcost, productprice, productinventory, supplierid, activelevel, upc) "
+        std::string query = "INSERT INTO product (sku, productname, productcost, productprice, productinventory, vendorid, activelevel, upc) "
                             "VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
         txn.exec_params(query, product.storeSKU, product.name, product.factoryCost, product.price, product.quantity, product.lastSupplier, activationLevel, product.UPC);
         txn.commit();

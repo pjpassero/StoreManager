@@ -47,10 +47,10 @@ void AddProductView::CreateNewProduct() {
     int getActiveLevel = determineLevel(activeLevel.toStdString());
 
     pqxx::work txn(C);
-    std::string getSupplierId = "SELECT supplierid FROM supplier WHERE suppliername=$1";
+    std::string getSupplierId = "SELECT vendorid FROM vendor WHERE vendorname=$1";
     pqxx::result result = txn.exec_params(getSupplierId, lSupplier.toStdString());
 
-    QString supplierId = QString::fromStdString(result[0]["supplierId"].c_str());
+    QString supplierId = QString::fromStdString(result[0]["vendorid"].c_str());
 
 
     txn.commit();
@@ -74,7 +74,7 @@ void AddProductView::CreateNewProduct() {
 void AddProductView::populateVendorList() {
 
     pqxx::work txn(C);
-    std::string query = "SELECT suppliername FROM supplier";
+    std::string query = "SELECT vendorname FROM vendor";
     pqxx::result result = txn.exec(query);
 
     ui->preferredVendor->clear(); // Clear existing items to avoid duplicates
@@ -85,7 +85,7 @@ void AddProductView::populateVendorList() {
     }
 
     for(auto r : result) {
-        QString qSupplierName = QString::fromStdString(r["supplierName"].c_str());
+        QString qSupplierName = QString::fromStdString(r["vendorname"].c_str());
         ui->preferredVendor->addItem(qSupplierName);
 
     }

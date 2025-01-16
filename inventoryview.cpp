@@ -33,6 +33,17 @@ InventoryView::InventoryView(QWidget *parent, pqxx::connection &conn)
     });
 
 
+    connect(ui->addVendor, &QPushButton::clicked, this, [this](){
+
+        if(!newVendor) {
+            newVendor = new AddVendorView(this, C);
+        }
+        newVendor->show();
+        newVendor->raise();
+        newVendor->activateWindow();
+    });
+
+
     connect(ui->tableWidget, &QTableWidget::cellClicked, this, &InventoryView::onSelectedRow);
 }
 
@@ -49,7 +60,7 @@ void InventoryView::reloadDataTable() {
 void InventoryView::PopulateInventoryViewFromFile() {
     try {
         pqxx::work txn(C);
-        std::string query = "SELECT sku, productName, productCost, productPrice, productInventory, suppliername, UPC FROM product as pro, supplier as s WHERE pro.supplierid = s.supplierid";
+        std::string query = "SELECT sku, productName, productCost, productPrice, productInventory, vendorname, UPC FROM product as pro, vendor as ven WHERE pro.vendorid = ven.vendorid";
         pqxx::result result = txn.exec(query);
 
         ui->tableWidget->setRowCount(result.size());  // Set the number of rows in the table widget
@@ -61,7 +72,7 @@ void InventoryView::PopulateInventoryViewFromFile() {
             QString qCost = QString::fromStdString(r["productCost"].c_str());
             QString qPrice = QString::fromStdString(r["productPrice"].c_str());
             QString qInventory = QString::fromStdString(r["productInventory"].c_str());
-            QString qSupplierName = QString::fromStdString(r["suppliername"].c_str());
+            QString qSupplierName = QString::fromStdString(r["vendorname"].c_str());
             QString qUPC = QString::fromStdString(r["UPC"].c_str());
 
             ui->tableWidget->setItem(row, 0, new QTableWidgetItem(qSKU));            // SKU

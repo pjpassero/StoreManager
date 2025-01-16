@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FirstWindow</class>
- <widget class="QMainWindow" name="FirstWindow">
+ <class>PointOfSaleView</class>
+ <widget class="QMainWindow" name="PointOfSaleView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,30 +14,50 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="login">
+   <widget class="QLabel" name="user">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>50</y>
-      <width>171</width>
-      <height>81</height>
+      <x>20</x>
+      <y>10</y>
+      <width>91</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Store Manager</string>
+     <string>Login Label</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="databaseWizard">
+   <widget class="QTableView" name="products">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>50</y>
-      <width>171</width>
-      <height>81</height>
+      <x>40</x>
+      <y>70</y>
+      <width>721</width>
+      <height>351</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="purchaseTotal">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>430</y>
+      <width>131</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Database Wizard</string>
+     <string>Purchase Total</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="productLine">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>441</width>
+      <height>31</height>
+     </rect>
     </property>
    </widget>
   </widget>

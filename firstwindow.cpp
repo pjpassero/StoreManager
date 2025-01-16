@@ -11,7 +11,6 @@ FirstWindow::FirstWindow(QWidget *parent)
 
     connect(ui->databaseWizard, &QPushButton::clicked, this, &FirstWindow::openDatabaseWizard);
 
-
 }
 
 FirstWindow::~FirstWindow()

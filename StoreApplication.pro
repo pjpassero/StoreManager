@@ -18,6 +18,7 @@ SOURCES += \
     StoreManager/StoreManager/store.cpp \
     addemployeeview.cpp \
     addproductview.cpp \
+    addvendorview.cpp \
     createdatabaseconnection.cpp \
     employeelistview.cpp \
     firstwindow.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    pointofsaleview.cpp \
     productview.cpp
 
 HEADERS += \
@@ -38,6 +40,7 @@ HEADERS += \
     StoreManager/StoreManager/store.h \
     addemployeeview.h \
     addproductview.h \
+    addvendorview.h \
     createdatabaseconnection.h \
     employeelistview.h \
     firstwindow.h \
@@ -45,11 +48,13 @@ HEADERS += \
     inventoryview.h \
     loginwindow.h \
     mainwindow.h \
+    pointofsaleview.h \
     productview.h
 
 FORMS += \
     addemployeeview.ui \
     addproductview.ui \
+    addvendorview.ui \
     createdatabaseconnection.ui \
     employeelistview.ui \
     firstwindow.ui \
@@ -57,6 +62,7 @@ FORMS += \
     inventoryview.ui \
     loginwindow.ui \
     mainwindow.ui \
+    pointofsaleview.ui \
     productview.ui
 
 # Default rules for deployment.

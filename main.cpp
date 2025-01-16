@@ -60,6 +60,8 @@ std::string retrieveDatabaseConnectionString() {
 int main(int argc, char *argv[])
 {
 
+
+
     pqxx::connection C(retrieveDatabaseConnectionString());
 
     if(C.is_open()) {
@@ -72,6 +74,7 @@ int main(int argc, char *argv[])
     LoginWindow login(nullptr, C);
 
     login.show();
+
 
     return a.exec();
 }

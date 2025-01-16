@@ -98,6 +98,19 @@
      <string>Price/Cost Analysis</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="addVendor">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>370</y>
+      <width>131</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Vendor</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

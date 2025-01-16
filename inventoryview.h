@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "addproductview.h"
+#include "addvendorview.h"
 #include <pqxx/pqxx>
 
 namespace Ui {
@@ -22,12 +23,12 @@ public:
 private:
     Ui::InventoryView *ui;
     AddProductView *newProduct;
+    AddVendorView *newVendor;
     pqxx::connection &C;
 
 
 
     void PopulateInventoryViewFromFile();
-
 };
 
 #endif // INVENTORYVIEW_H
