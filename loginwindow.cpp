@@ -84,9 +84,3 @@ void LoginWindow::LaunchHomeView(UserSession &us) {
     this->close();
 }
 
-bool LoginWindow::FindUserInDatastore() {
-
-
-
-    return false;
-}

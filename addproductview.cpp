@@ -18,6 +18,8 @@ AddProductView::AddProductView(QWidget *parent, pqxx::connection &conn)
 
 AddProductView::~AddProductView()
 {
+
+
     delete ui;
 }
 

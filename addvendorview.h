@@ -14,6 +14,9 @@ class AddVendorView : public QDialog
 public:
     explicit AddVendorView(QWidget *parent, pqxx::connection &conn);
     ~AddVendorView();
+    void addVendor();
+
+
 
 private:
     Ui::AddVendorView *ui;
