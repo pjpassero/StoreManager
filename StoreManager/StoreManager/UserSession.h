@@ -1,3 +1,12 @@
+/*
+ * Philip J. Passero IV
+ * UserSession.h
+ *
+ * Definition file for the User Session class.
+ *
+ * The UserSession class is used to track sessions when someone if logged into the store manager
+ */
+
 #ifndef USERSESSION_H
 #define USERSESSION_H
 

@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * Employee.h
+ *
+ * Employee Class declaration file. Defines the employee class.
+ *
+ */
+
 #pragma once
 #include <string>
 #include "UID.h"
