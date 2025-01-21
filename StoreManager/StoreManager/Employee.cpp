@@ -1,9 +1,27 @@
+/*
+ * Philip J. Passero IV
+ * Employee.cpp
+ *
+ * Employee class implementation file
+ *
+ * Implements the constructors, destructor, and various functions of the employee class
+ *
+ */
+
 #include "Employee.h"
 #include "UID.h"
 #include <fstream>
 #include <string>
 
 using namespace std;
+
+
+/*
+ * Default constructor with connection
+ * @param conn: reference to the connection to application database
+ *
+ * Everything will be set to NULL or a varaition of it except the connection reference
+ */
 
 Employee::Employee( pqxx::connection &conn):C(conn) {
     salary = 0.0;
@@ -13,6 +31,21 @@ Employee::Employee( pqxx::connection &conn):C(conn) {
     password = "NULL";
 }
 
+/*
+ * Constructor that initalizes all the fields based on user inputs
+ * @param nName: the name of the employee
+ * @param nSalary: the salary of the employee
+ * @param pEmail: the email of the employee
+ * @param pN: the phonenumber of the employee
+ * @param aL: the active level of the employee (is the employee current or old)
+ * @param pLevel: the permission level of the employee
+ * @param uName: the username of the employee to access the application
+ * @pram pWord: the password of the employee to access the application
+ * @param nAddress: the address of the employee
+ * @param conn: the connection class details to access the database
+ *
+ * Intializes all the fields based on what the user gives.
+ */
 
 Employee::Employee(string nName, double nSalary, string pEmail, string pN, string aL, string pLevel, string uName, string pWord, string nAddress, pqxx::connection &conn):C(conn) {
     salary = nSalary;
@@ -26,7 +59,15 @@ Employee::Employee(string nName, double nSalary, string pEmail, string pN, strin
     email = pEmail;
     phonenumber = pN;
 }
-
+/*
+ * Constructor that create employee class with username and password
+ * @param uName: username of the employee to access the application
+ * @param pWord: password of the employee to access the application
+ * @param conn: the connection details to access the database
+ *
+ * Initalizes the username and password fields to the user given values, sets eveything else to empty until fields can be filled.
+ *
+ */
 
 Employee::Employee(string uName, string pWord, pqxx::connection &conn):C(conn) {
 
@@ -42,17 +83,47 @@ Employee::Employee(string uName, string pWord, pqxx::connection &conn):C(conn) {
 }
 
 
+/*
+ * Return the UID of the employee
+ */
+
 string Employee::getUID() {
     return employeeUID;
 }
+
+/*
+ * Return the name of the employee
+ */
 
 string Employee::getName() {
     return name;
 }
 
+/*
+ * Return the permission level of the employee
+ */
+
 string Employee::getPermissionLevel() {
     return accessLevel;
 }
+
+
+/*
+ * Return the salary of the employee
+ */
+double Employee::getSalary() {
+    return salary;
+}
+
+/*
+ * @param workString: the string that has the extra characters
+ *
+ * This function is defined to only return the digits of a string that is stored in the database.
+ * Since PSQL stores the salary in the "money" format, when queried, it cannot be placed directly in a double
+ * So, the string is traversed and only digits are kept and then converted to a double and returned
+ *
+ * @return double representing the salary of the employee
+ */
 
 double removeExtraCharactersAndDouble(string workString) {
 
@@ -67,6 +138,13 @@ double removeExtraCharactersAndDouble(string workString) {
     return stod(finalString);
 
 }
+
+/*
+ * Will set the employee details based on the username and password.
+ * To be mainly used with the constructor that is defined to take in username, password, and connection
+ * Database is queried to return the entire relation that represents the employee based on username and password
+ *
+ */
 
 void Employee::setEmployeeDetails() {
 
@@ -100,50 +178,12 @@ void Employee::setEmployeeDetails() {
 
 
 }
-
-
-double Employee::getSalary() {
-    return salary;
-}
-
-void Employee::SetEmployeeLoginCredentials(string uid, string u, string p) {
-    username = u;
-    password = p;
-    string storeData = "LumberCo";
-    //SaveNewEmployeeDriver(*(this), storeData);
-}
-
-bool Employee::SearchEmployeeFileByUID(string searchUID) {
-    //cout << "UID: " << searchUID << endl;
-    ifstream employeeFile;
-    bool found = false;
-    string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/LumberCo/employee/employee.txt";
-    string line;
-
-    try {
-        employeeFile.open(filePath);
-
-        if (!employeeFile.is_open()) {
-            throw runtime_error("Unable to open file: " + filePath);
-        }
-
-        while (getline(employeeFile, line)) {
-            if (line.size() >= 10) {
-                string fileUID = line.substr(2, 6);
-                if (searchUID == fileUID) {
-                    found = true;
-                    break;
-                }
-            }
-        }
-
-    } catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
-    }
-
-    employeeFile.close();
-    return found;
-}
+/*
+ * @param employee: the employee that is going to be added to the database
+ *
+ * Adds a new employee to the company. It is called by the employee object that needs to be added.
+ *
+ */
 void Employee::AddNewEmployeeDriver(Employee &employee) {
 
     try {
@@ -166,60 +206,3 @@ void Employee::AddNewEmployeeDriver(Employee &employee) {
 
 
 };
-
-
-/*
-void Employee::ReadEmployeeData(string UID) {
-    
-    ofstream employeeFile;
-    string filePath = "/Users/pjpassero/Documents/StoreManager/StoreManager/StoreDataFiles/" + storePath + "/employee/employee.txt";
-    
-    try {
-        employeeFile.open(filePath);
-        
-        if(!employeeFile.is_open()) {
-            throw runtime_error("Error unable to open the file:" + filePath);
-        }
-        
-        
-        
-        
-        
-    } catch(exception &e) {
-        cout << "Error:" << e.what();
-    }
-    
-    
-    
-}
-*/
-    /*
-
-void Employee::SaveEmployeeData(Employee &employee) {
-    ofstream employeeFile;
-    string filePath = "/Users/pjpassero/Documents/StoreApplication/StoreManager/StoreManager/StoreDataFiles/LumberCo/employee/employee.txt";
-    
-    \
-    try {
-        employeeFile.open(filePath, ios_base::app);
-
-
-        if(employeeFile.is_open()) {
-
-            throw runtime_error("File not opened!");
-        }
-
-
-
-    } catch (exception &e) {
-        cerr << "Error " << e.what();
-    }
-
-        
-    
-}
-
-
-
-*/
-
