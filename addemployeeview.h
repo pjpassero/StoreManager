@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * addemployeeview.h
+ *
+ * Add Employee View class declaration file
+ *
+ */
+
 #ifndef ADDEMPLOYEEVIEW_H
 #define ADDEMPLOYEEVIEW_H
 #include <pqxx/pqxx>

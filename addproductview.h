@@ -1,3 +1,12 @@
+/*
+ * Philip J. Passero IV
+ * addproductview.h
+ *
+ * Add Product View class declaration file
+ *
+ */
+
+
 #ifndef ADDPRODUCTVIEW_H
 #define ADDPRODUCTVIEW_H
 #include <pqxx/pqxx>
