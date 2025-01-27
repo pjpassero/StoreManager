@@ -34,12 +34,14 @@ std::string retrieveDatabaseConnectionString() {
                 std::getline(ss, host, ',') &&
                 std::getline(ss, port, ',')) {
 
-                // Print parsed data
+                // Print parsed data - Not really needed unless for debugging
+                /*
                 std::cout << "Database: " << db << std::endl;
                 std::cout << "Username: " << uname << std::endl;
                 std::cout << "Password: " << password << std::endl;
                 std::cout << "Host: " << host << std::endl;
                 std::cout << "Port: " << port << std::endl;
+                */
             } else {
                 std::cerr << "Error parsing the line: " << line << std::endl;
             }

@@ -1,3 +1,13 @@
+/*
+ *Philip J. Passero IV
+ *loginwindow.h
+ *
+ *
+ *Login Window View declaration file
+ *
+ *This is the window that will display the login view
+ */
+
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 

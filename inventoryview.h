@@ -1,3 +1,12 @@
+/*
+ *Philip J. Passero
+ *inventoryview.h
+ *
+ *Inventory View Class declaration file.
+ *
+ *This class creates the window that allows the user to see all the products in the database
+ */
+
 #ifndef INVENTORYVIEW_H
 #define INVENTORYVIEW_H
 

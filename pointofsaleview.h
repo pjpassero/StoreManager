@@ -1,3 +1,13 @@
+/*
+ * Philip J. Passero IV
+ * pointofsaleview.h
+ *
+ *
+ * In development
+ *
+ * This will eventually be the home of the Point of Sale window for the application
+ */
+
 #ifndef POINTOFSALEVIEW_H
 #define POINTOFSALEVIEW_H
 

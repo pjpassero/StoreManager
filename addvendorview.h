@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * addvendorview.h
+ *
+ *
+ *Add Vendor View class declaration file
+ */
+
 #ifndef ADDVENDORVIEW_H
 #define ADDVENDORVIEW_H
 #include <pqxx/pqxx>

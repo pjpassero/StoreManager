@@ -1,3 +1,10 @@
+/*
+ *Philip J. Passero IV
+ *employeelistview.h
+ *
+ *Employee List View Class declaration
+ */
+
 #ifndef EMPLOYEELISTVIEW_H
 #define EMPLOYEELISTVIEW_H
 #include <pqxx/pqxx>

@@ -1,3 +1,13 @@
+/*
+ *Philip J. Passero IV
+ *homepageview.h
+ *
+ *Home Page View declaration file.
+ *
+ *This is the view that the user will first see when the application is opened.
+ */
+
+
 #ifndef HOMEPAGEVIEW_H
 #define HOMEPAGEVIEW_H
 #include <inventoryview.h>

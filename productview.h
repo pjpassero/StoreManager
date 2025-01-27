@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * productview.h
+ *
+ *Creates the product view for the application
+ */
+
+
 #ifndef PRODUCTVIEW_H
 #define PRODUCTVIEW_H
 
