@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * Product.h
+ *
+ * Product class declaration file. Defines the product class.
+ *
+ */
+
 #pragma once
 #ifndef Product_h
 #define Product_h

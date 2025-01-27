@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero IV
+ * Store.h
+ *
+ * Store Class declaration file. Defines the Store class.
+ *
+ */
+
 #include <string>
 #include <iostream>
 #include "Employee.h"

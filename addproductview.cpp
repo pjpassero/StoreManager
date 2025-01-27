@@ -1,8 +1,28 @@
+/*
+ * Philip J. Passero IV
+ * addproductview.cpp
+ *
+ * Add Product View Implementation File
+ *
+ *
+ * Implements the add product view class which creates a new window to add a new product to the database
+ *
+ */
+
 #include "addproductview.h"
 #include "ui_addproductview.h"
 #include <pqxx/pqxx>
 #include "StoreManager/StoreManager/Product.h"
 #include "inventoryview.h"
+
+/*
+ * Add Product View Constructor
+ * @param parent: parent window pointer
+ * @param conn: reference to the database conneciton class object
+ *
+ * Creates a new QDialog Window that displays a form to add a new product
+ */
+
 AddProductView::AddProductView(QWidget *parent, pqxx::connection &conn)
     : QDialog(parent)
     , ui(new Ui::AddProductView), C(conn)
@@ -11,6 +31,8 @@ AddProductView::AddProductView(QWidget *parent, pqxx::connection &conn)
     this->setWindowTitle("Add a New Product");
     populateVendorList();
 
+
+    //Registers the button click of addProduct
     connect(ui->addProduct, &QPushButton::clicked, this, &AddProductView::CreateNewProduct);
 
 
@@ -22,6 +44,13 @@ AddProductView::~AddProductView()
 
     delete ui;
 }
+
+/*
+ * Determines the approprite active level of the product based on string input.
+ * @param level: reference to the active level stored in the database
+ *
+ * @return: integer that will be used in the GUI for the inventory information
+ */
 
 int determineLevel(const std::string& level) {
     if (level == "Active") {
@@ -36,6 +65,16 @@ int determineLevel(const std::string& level) {
         throw std::invalid_argument("Invalid level");
     }
 }
+
+/*
+ *New Product button event handler
+ *Takes all the data from the form and stores then in QStrings
+ *Determine Level will get the appropriate level for the selection
+ *
+ *Connects to the database and finds the venderid that matches the user selection
+ *If found, then a new product object is created and the product object SaveToInventoryFile() is called to save to the database
+ *Once the work is done, the window is closed and deconstructed.
+ */
 
 void AddProductView::CreateNewProduct() {
 
@@ -71,6 +110,12 @@ void AddProductView::CreateNewProduct() {
         parentWindow->reloadDataTable();
     }
 }
+
+/*
+ *Populate the vendor list for the user to select from when creating a new product
+ *Select all the vendors from vendor table and place then in the list on the GUI
+ *
+ */
 
 
 void AddProductView::populateVendorList() {
