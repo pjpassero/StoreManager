@@ -1,9 +1,28 @@
+/*
+ * Philip J. Passero IV
+ * addemployeeview.cpp
+ *
+ * Employee View Implementation
+ *
+ * Implements the employee view and related functions of the view
+ *
+ */
+
 #include "addemployeeview.h"
 #include "employeelistview.h"
 #include "ui_addemployeeview.h"
 #include "StoreManager/StoreManager/Employee.h"
 #include <pqxx/pqxx>
 
+
+/*
+ * Add employee view constructor
+ * @param parent: pointer to the parent window
+ * @param conn: reference to the conenction class object for the database
+ *
+ *Creates a QMainWindow object based on the params. Will initalize the database connection to this particular window.
+ *Houses the handler for the addEmployee push button onclick event - THIS WILL BE CHANGED TO A SEPERATE FUNCTION
+ */
 
 AddEmployeeView::AddEmployeeView(QWidget *parent, pqxx::connection &conn)
     : QMainWindow(parent)
@@ -16,7 +35,8 @@ AddEmployeeView::AddEmployeeView(QWidget *parent, pqxx::connection &conn)
 
 
 
-
+    //Registers the button click event to a function and creates new employee details based on that
+    //WILL CONVERT THIS TO ITS OWN FUNCTION
     connect(ui->addEmployee, &QPushButton::clicked, this, [this]() {
         QString employeeName = ui->firstname->toPlainText() + " " + ui->lastname->toPlainText();
         QString employeeUserName = ui->username->toPlainText();
