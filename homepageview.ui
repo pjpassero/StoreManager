@@ -19,44 +19,66 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>100</width>
-      <height>32</height>
+      <width>101</width>
+      <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/inventoryBtn.png);
+background-repeat:no-repeat;
+border-style:none;
+</string>
+    </property>
     <property name="text">
-     <string>Inventory</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="storeData">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>130</x>
       <y>10</y>
       <width>100</width>
-      <height>32</height>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/store.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
     <property name="text">
-     <string>Store Data</string>
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>16</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="employees">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>240</x>
       <y>10</y>
       <width>100</width>
-      <height>32</height>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/employees.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
     <property name="text">
-     <string>Employees</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="customers">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>350</x>
       <y>10</y>
       <width>100</width>
       <height>32</height>
@@ -69,7 +91,7 @@
    <widget class="QPushButton" name="sales">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>460</x>
       <y>10</y>
       <width>100</width>
       <height>32</height>
@@ -82,7 +104,7 @@
    <widget class="QPushButton" name="balancesheet">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>570</x>
       <y>10</y>
       <width>100</width>
       <height>32</height>
@@ -90,6 +112,19 @@
     </property>
     <property name="text">
      <string>Balance Sheet</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="orders">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>10</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Orders</string>
     </property>
    </widget>
   </widget>

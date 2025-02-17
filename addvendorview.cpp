@@ -1,3 +1,11 @@
+/*
+ * Philip J. Passero
+ * addvendorview.cpp
+ *
+ * Add vendor view dialog class implementation
+ *
+ */
+
 #include "addvendorview.h"
 #include "ui_addvendorview.h"
 #include <pqxx/pqxx>
@@ -18,7 +26,9 @@ AddVendorView::~AddVendorView()
 }
 
 
-
+/*
+ * Add a new vendor button event handler. Will store the new vendor in the vendor table
+ */
 
 void AddVendorView::addVendor() {
 

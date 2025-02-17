@@ -23,9 +23,11 @@ public:
     explicit AddEmployeeView(QWidget *parent, pqxx::connection &conn);
     ~AddEmployeeView();
 
+
 private:
     Ui::AddEmployeeView *ui;
     pqxx::connection &C;
+    void addNewEmployee();
 
 };
 

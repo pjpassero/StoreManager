@@ -75,7 +75,6 @@ DISTFILES += \
     StoreManager/StoreManager.xcodeproj/project.xcworkspace/contents.xcworkspacedata \
     StoreManager/StoreManager.xcodeproj/project.xcworkspace/xcuserdata/pjpassero.xcuserdatad/UserInterfaceState.xcuserstate \
     StoreManager/StoreManager.xcodeproj/xcuserdata/pjpassero.xcuserdatad/xcschemes/xcschememanagement.plist \
-    StoreManager/StoreManager/StoreDataFiles/LumberCo/LumberCo.txt \
     StoreManager/StoreManager/StoreDataFiles/LumberCo/employee/employee.txt \
     StoreManager/StoreManager/StoreDataFiles/LumberCo/inventory/inventory.csv \
     StoreManager/StoreManager/StoreDataFiles/LumberCo/inventory/inventory.txt
@@ -86,3 +85,6 @@ INCLUDEPATH += /opt/homebrew/include /opt/homebrew/opt/libpq/include
 
 # Link libraries for libpqxx and libpq
 LIBS += -L/opt/homebrew/lib -L/opt/homebrew/opt/libpq/lib -lpqxx -lpq
+
+RESOURCES += \
+    resources.qrc
