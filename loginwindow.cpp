@@ -1,4 +1,5 @@
 #include "loginwindow.h"
+#include "QtWidgets/qlineedit.h"
 #include "ui_loginwindow.h"
 #include <pqxx/pqxx>
 #include <iostream>
@@ -12,7 +13,7 @@ LoginWindow::LoginWindow(QWidget *parent, pqxx::connection& conn)
     ui->setupUi(this);
 
     this->setWindowTitle("Store Manager Pro: Login");
-
+    ui->password->setEchoMode(QLineEdit::Password);
 
 
     connect(ui->loginBtn, &QPushButton::clicked, this, &LoginWindow::LoginToProgram);
@@ -51,7 +52,7 @@ bool LoginWindow::FindUserInDatabase(std::string &eUsername, std::string &ePassw
 
 void LoginWindow::LoginToProgram() {
     std::string username = ui->user->toPlainText().toStdString();
-    std::string password = ui->password->toPlainText().toStdString();
+    std::string password = ui->password->text().toStdString();
 
     //ui->datLine->setText(username + " " + password);
 

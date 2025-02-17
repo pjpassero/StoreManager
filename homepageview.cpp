@@ -22,7 +22,8 @@ HomePageView::HomePageView(QWidget *parent, pqxx::connection &con, UserSession &
         ui->storeData->setEnabled(false);
     }
 
-
+    ui->inventory->setToolTip("Inventory");
+    //employees->setToolTip("Employees");
 
 
 }

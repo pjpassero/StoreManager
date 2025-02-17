@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
 
     pqxx::connection C(retrieveDatabaseConnectionString());
 
+
     if(C.is_open()) {
         std::cout << "Database is connected! " << std::endl;
     } else {
@@ -74,6 +75,8 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     LoginWindow login(nullptr, C);
+
+    //a.setStyleSheet("QToolTip { color: black; background-color: blue; border: 1px solid white; padding: 5px; }");
 
     login.show();
 

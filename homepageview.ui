@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>20</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -37,7 +37,7 @@ border-style:none;
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>10</y>
+      <y>20</y>
       <width>100</width>
       <height>91</height>
      </rect>
@@ -61,13 +61,13 @@ border-style:none;</string>
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>10</y>
+      <y>20</y>
       <width>100</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/icons/Resources/employees.png);
+     <string notr="true">background-image: url(:/icons/Resources/employee.png);
 background-repeat:no-repeat;
 border-style:none;</string>
     </property>
@@ -79,48 +79,172 @@ border-style:none;</string>
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>10</y>
+      <y>30</y>
       <width>100</width>
-      <height>32</height>
+      <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/customers.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
     <property name="text">
-     <string>Customers</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="sales">
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>10</y>
+      <y>20</y>
       <width>100</width>
-      <height>32</height>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/sales.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
     <property name="text">
-     <string>Sales</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="balancesheet">
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>10</y>
+      <y>20</y>
       <width>100</width>
-      <height>32</height>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/balancesheet.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
     <property name="text">
-     <string>Balance Sheet</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="orders">
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>10</y>
+      <y>20</y>
       <width>100</width>
-      <height>32</height>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/icons/Resources/order.png);
+background-repeat:no-repeat;
+border-style:none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>791</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>0</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Inventory</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>0</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Store Data</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>0</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Employees</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>0</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Customers</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>0</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sales</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>0</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Balance Sheet</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>0</y>
+      <width>101</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
