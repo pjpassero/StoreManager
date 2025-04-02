@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OrderView</class>
+ <widget class="QWidget" name="OrderView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>526</width>
+    <height>351</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="orderDocket">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>521</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>SKU</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Product Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Current Cost</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Inventory</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Order Amount</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

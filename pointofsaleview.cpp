@@ -24,6 +24,7 @@ void PointOfSaleView::Login() {
     if(!loggedIn) {
 
         LoginWindow* loginWin = new LoginWindow(this, C, POINT_OF_SALE);
+        loginWin->setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
         loginWin->show();
         loginWin->activateWindow();
         loginWin->raise();
@@ -48,7 +49,6 @@ void PointOfSaleView::updateWinData() {
 void PointOfSaleView::AddToList()  {
 
     std::string item = ui->productLine->toPlainText().toStdString();
-
 
 
 }

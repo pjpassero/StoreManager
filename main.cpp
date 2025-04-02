@@ -75,12 +75,12 @@ int main(int argc, char *argv[])
     }
 
     QApplication a(argc, argv);
-    //LoginWindow login(nullptr, C);
-    PointOfSaleView pointOfSale(nullptr, C);
+    LoginWindow login(nullptr, C, MAINWINDOW);
+    //PointOfSaleView pointOfSale(nullptr, C);
     //a.setStyleSheet("QToolTip { color: black; background-color: blue; border: 1px solid white; padding: 5px; }");
 
-    //login.show();
-    pointOfSale.show();
+    login.show();
+    //pointOfSale.show();
 
     return a.exec();
 }

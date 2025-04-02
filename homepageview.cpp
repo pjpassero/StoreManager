@@ -1,8 +1,7 @@
 #include "homepageview.h"
 #include "ui_homepageview.h"
 #include "StoreManager/StoreManager/UserSession.h"
-
-
+#include "orderview.h"
 HomePageView::HomePageView(QWidget *parent, pqxx::connection &con, UserSession &newSession)
     : QMainWindow(parent)
     , ui(new Ui::HomePageView),session(newSession),C(con)
@@ -15,7 +14,7 @@ HomePageView::HomePageView(QWidget *parent, pqxx::connection &con, UserSession &
 
     connect(ui->inventory, &QPushButton::clicked, this, &HomePageView::LoadInventoryView);
     connect(ui->employees, &QPushButton::clicked,this, &HomePageView::LoadEmployeeView);
-
+    connect(ui->orders, &QPushButton::clicked, this, &HomePageView::LoadOrderView);
     if(session.getCurentEmployee().getPermissionLevel() != "Owner") {
         ui->employees->setEnabled(false);
         ui->balancesheet->setEnabled(false);
@@ -33,7 +32,16 @@ HomePageView::~HomePageView()
     delete ui;
 }
 
+void HomePageView::LoadOrderView() {
 
+    OrderView* order = new OrderView(this, C);
+
+    order->activateWindow();
+    order->raise();
+    order->show();
+
+
+}
 
 void HomePageView::LoadInventoryView() {
 

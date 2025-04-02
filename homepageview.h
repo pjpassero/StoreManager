@@ -34,6 +34,7 @@ private:
     pqxx::connection &C;
     void LoadInventoryView();
     void LoadEmployeeView();
+    void LoadOrderView();
 
 
 };

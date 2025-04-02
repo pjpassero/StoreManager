@@ -27,6 +27,7 @@ SOURCES += \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    orderview.cpp \
     pointofsaleview.cpp \
     productview.cpp
 
@@ -48,6 +49,7 @@ HEADERS += \
     inventoryview.h \
     loginwindow.h \
     mainwindow.h \
+    orderview.h \
     pointofsaleview.h \
     productview.h
 
@@ -62,6 +64,7 @@ FORMS += \
     inventoryview.ui \
     loginwindow.ui \
     mainwindow.ui \
+    orderview.ui \
     pointofsaleview.ui \
     productview.ui
 
