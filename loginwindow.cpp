@@ -1,14 +1,15 @@
 #include "loginwindow.h"
 #include "QtWidgets/qlineedit.h"
 #include "ui_loginwindow.h"
+#include "pointofsaleview.h"
 #include <pqxx/pqxx>
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
 #include "StoreManager/StoreManager/UserSession.h"
 #include <QTimer>
-LoginWindow::LoginWindow(QWidget *parent, pqxx::connection& conn)
-    : QMainWindow(parent), C(conn), ui(new Ui::LoginWindow)
+LoginWindow::LoginWindow(QWidget *parent, pqxx::connection& conn, LOGINTYPE login)
+    : QMainWindow(parent), C(conn),logInAs(login), ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
 
@@ -64,8 +65,12 @@ void LoginWindow::LoginToProgram() {
         currentEmployee.setEmployeeDetails();
 
         UserSession newSession(currentEmployee, C);
-
-        LaunchHomeView(newSession);
+        std::cout << logInAs;
+        if(logInAs == MAINWINDOW) {
+            LaunchHomeView(newSession);
+        } else if(logInAs == POINT_OF_SALE) {
+            LauchPointOfSaleView(newSession);
+        }
 
     } else {
         std::cout << "Error, check username or password" << std::endl;
@@ -73,6 +78,13 @@ void LoginWindow::LoginToProgram() {
 
 }
 
+void LoginWindow::LauchPointOfSaleView(UserSession &us) {
+    us.logSessionEvent("login");
+    PointOfSaleView* parentWin = qobject_cast<PointOfSaleView*>(parent());
+    parentWin->setSession(&us);
+    parentWin->updateWinData();
+    this->close();
+}
 
 void LoginWindow::LaunchHomeView(UserSession &us) {
 
