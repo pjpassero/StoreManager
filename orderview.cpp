@@ -6,7 +6,7 @@ OrderView::OrderView(QWidget *parent, pqxx::connection &conn)
     , C(conn), ui(new Ui::OrderView)
 {
     ui->setupUi(this);
-    ui->connect(send, this, &QPushButton::click, &OrderView::SendOrder);
+    //ui->connect(send, this, &QPushButton::click, &OrderView::SendOrder);
     PopulateProductsFromFile();
 }
 

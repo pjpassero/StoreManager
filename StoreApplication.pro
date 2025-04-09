@@ -29,7 +29,8 @@ SOURCES += \
     mainwindow.cpp \
     orderview.cpp \
     pointofsaleview.cpp \
-    productview.cpp
+    productview.cpp \
+    salesview.cpp
 
 HEADERS += \
     StoreManager/StoreManager/BalanceSheet.h \
@@ -51,7 +52,8 @@ HEADERS += \
     mainwindow.h \
     orderview.h \
     pointofsaleview.h \
-    productview.h
+    productview.h \
+    salesview.h
 
 FORMS += \
     addemployeeview.ui \
@@ -66,7 +68,8 @@ FORMS += \
     mainwindow.ui \
     orderview.ui \
     pointofsaleview.ui \
-    productview.ui
+    productview.ui \
+    salesview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
