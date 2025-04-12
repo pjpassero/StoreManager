@@ -35,7 +35,7 @@ private:
     void LoadInventoryView();
     void LoadEmployeeView();
     void LoadOrderView();
-
+    void LoadSalesData();
 
 };
 
